@@ -1,7 +1,7 @@
 {
-  "name": "tints-and-shades",
+  "name": "tonemaster",
   "version": "4.0.0",
-  "description": "Easily make tints and shades that match the output of Chrome DevTools, Sass, Less, and PostCSS.",
+  "description": "ToneMaster — generate precise ToneMaster (fork of buffersounds/tonemaster).",
   "main": "index.js",
   "scripts": {
     "watch:readme": "nodemon --watch src/about.njk --watch build-readme.js --exec \"npm run build:readme\"",
@@ -16,13 +16,19 @@
   },
   "keywords": [
     "colors",
+    "colour",
     "hex",
     "tints",
     "shades",
     "palettes",
-    "design"
+    "design",
+    "wcag",
+    "tokens"
   ],
-  "author": "Michael Edelstone <michael.edelstone@gmail.com> (https://michaeledelstone.com)",
+  "author": "BufferSounds (Gary Wood)",
+  "contributors": [
+    "Michael buffersounds <michael.buffersounds@gmail.com> (https://michaelbuffersounds.com)"
+  ],
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
@@ -31,6 +37,7 @@
     "gh-pages": "^6.1.1",
     "nodemon": "^3.1.4",
     "sass": "^1.78.0",
-    "turndown": "^7.2.0"
+    "turndown": "^7.2.0",
+    "vitest": "^3.2.4"
   }
 }

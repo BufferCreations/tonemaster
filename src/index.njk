@@ -6,27 +6,52 @@ main: true
 ---
 
 <div class="form">
-	<form class="pure-form" id="color-entry-form" action="#" method="post" name="color-entry-form">
-		<div class="labels">
-			<div class="form-warning" id="warning">Please enter at least one valid hex color.</div>
-			<h2><label class="textarea-label" for="color-values">Enter hex colors (separated by spaces)</label></h2>
-		</div>
-		<div class="input">
-			<textarea id="color-values" name="color-values" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
-		</div>
-		<input id="make" class="button" type="submit" value="Make tints and shades &nbsp;🎉">
-	</form>
+  <form class="pure-form" id="color-entry-form" action="#" method="post" name="color-entry-form">
+    <div class="labels">
+      <div class="form-warning" id="warning">Please enter at least one valid hex color.</div>
+      <h2><label class="textarea-label" for="color-values">Enter hex colors (separated by spaces)</label></h2>
+    </div>
+
+    <div class="input">
+      <textarea id="color-values" name="color-values" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+    </div>
+
+    <!-- ToneMaster controls -->
+    <div class="input" style="margin-top:.75rem">
+      <label for="mode" class="textarea-label">Mode</label>
+      <select id="mode" name="mode">
+        <option value="default">Default (10%)</option>
+        <option value="steps">Custom Steps</option>
+        <option value="single">Single %</option>
+      </select>
+    </div>
+
+    <div class="input" style="margin-top:.75rem; display:none" id="step-wrapper">
+      <label for="step-size" class="textarea-label">Step %</label>
+      <input id="step-size" name="step-size" type="number" value="10" min="1" max="50" step="1" style="width:8rem">
+    </div>
+
+    <div class="input" style="margin-top:.75rem; display:none" id="single-wrapper">
+      <label for="single-percent" class="textarea-label">Single %</label>
+      <input id="single-percent" name="single-percent" type="number" value="25" min="1" max="99" step="1" style="width:8rem">
+    </div>
+
+    <input id="make" class="button" type="submit" value="Make ToneMaster &nbsp;🎉">
+  </form>
 </div>
+
 <div class="hashtag-selector" id="scroll-top">
-	<label class="switch" tabindex="0">
-		<input type="checkbox" id="copy-with-hashtag" tabindex="-1">
-		<span class="control"></span>
-		<span class="label">Include hashtag when copying</span>
-	</label>
+  <label class="switch" tabindex="0">
+    <input type="checkbox" id="copy-with-hashtag" tabindex="-1">
+    <span class="control"></span>
+    <span class="label">Include hashtag when copying</span>
+  </label>
 </div>
+
 <div class="ads">
-	<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CW7ILKQU&placement=maketintsandshadescom&format=cover" id="_carbonads_js"></script>
+  <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CW7ILKQU&placement=maketintsandshadescom&format=cover" id="_carbonads_js"></script>
 </div>
+
 <div class="palettes">
-	<div id="tints-and-shades"></div>
+  <div id="tonemaster"></div>
 </div>

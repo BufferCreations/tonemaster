@@ -1,4 +1,4 @@
-# [<img src="src/icon.svg" width="28px" />](https://maketintsandshades.com) &nbsp;[Tint & Shade Generator](https://maketintsandshades.com)
+# [<img src="src/icon.svg" width="28px" />](https://maketintsandshades.com) &nbsp;[ToneMaster Generator](https://maketintsandshades.com)
 
 <a href="https://maketintsandshades.com">
  <picture>
@@ -36,13 +36,13 @@ The purpose of this tool is to accurately produce tints (pure white added) and s
 
 It takes the math seriously. In my experience similar tools get the calculation incorrect due to rounding errors, creator preferences, or other inconsistencies.
 
-Testing shows that the output matches Chrome DevTools' calculation method as well as some [established](https://css-tricks.com/snippets/sass/tint-shade-functions), [popular](https://sindresorhus.com/sass-extras/#color-function-tint) methods to derive tints and shades via Sass.
+Testing shows that the output matches Chrome DevTools' calculation method as well as some [established](https://css-tricks.com/snippets/sass/tint-shade-functions), [popular](https://sindresorhus.com/sass-extras/#color-function-tint) methods to derive ToneMaster via Sass.
 
 ## When would I use this?
 
 It's best used when you already have some base colors but would like complimentary colors for gradients, borders, backgrounds, shadows or other elements.
 
-This is useful for designers who may be communicating color intent to developers who use Sass or PostCSS in their builds. It's also a solid way to quickly preview what tints and shades look like for a base color you may be considering for your design.
+This is useful for designers who may be communicating color intent to developers who use Sass or PostCSS in their builds. It's also a solid way to quickly preview what ToneMaster look like for a base color you may be considering for your design.
 
 I've also heard it's useful for teachers, data professionals, and people who make presentations.
 
@@ -57,7 +57,7 @@ The new value is rounded if necessary, and then converted back to hex for displa
 
 ## Example calculation
 
-Let’s say we want tints and shades of [Rebecca Purple](https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/), #663399.
+Let’s say we want ToneMaster of [Rebecca Purple](https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/), #663399.
 
 ### 10% tint
 
@@ -79,22 +79,22 @@ Let’s say we want tints and shades of [Rebecca Purple](https://meyerweb.com/er
 
 This project is open source and I'd love your help!
 
-If you notice a bug or want a feature added please [file an issue on GitHub](https://github.com/edelstone/tints-and-shades/issues/new). If you don't have an account there, just [email me](mailto:contact@maketintsandshades.com) the details.
+If you notice a bug or want a feature added please [file an issue on GitHub](https://github.com/buffersounds/tonemaster/issues/new). If you don't have an account there, just [email me](mailto:contact@maketintsandshades.com) the details.
 
-If you're a developer and want to help with the project, please comment on [open issues](https://github.com/edelstone/tints-and-shades/issues) or create a new one and communicate your intentions. Once we agree on a path forward you can just make a pull request and take it to the finish line.
+If you're a developer and want to help with the project, please comment on [open issues](https://github.com/buffersounds/tonemaster/issues) or create a new one and communicate your intentions. Once we agree on a path forward you can just make a pull request and take it to the finish line.
 
 ## Support this project
 
 The Tint & Shade Generator will always be free but your support is greatly appreciated.
 
--   [Buy Me a Coffee](https://www.buymeacoffee.com/edelstone)
--   [Venmo](https://venmo.com/michaeledelstone)
--   [Cash App](https://cash.app/$edelstone)
--   [Paypal](https://www.paypal.me/edelstone)
+-   [Buy Me a Coffee](https://www.buymeacoffee.com/buffersounds)
+-   [Venmo](https://venmo.com/michaelbuffersounds)
+-   [Cash App](https://cash.app/$buffersounds)
+-   [Paypal](https://www.paypal.me/buffersounds)
 
 ## Credits
 
-[Michael Edelstone](https://michaeledelstone.com) designed and organized the project with big-time assistance from [Nick Wing](https://github.com/wickning1) on the color calculations.
+[Michael buffersounds](https://michaelbuffersounds.com) designed and organized the project with big-time assistance from [Nick Wing](https://github.com/wickning1) on the color calculations.
 
 We use these amazing open-source libraries across the project:
 
