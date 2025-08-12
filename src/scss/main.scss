@@ -83,25 +83,6 @@ code {
 	left: 2rem;
 }
 
-.github-corner {
-	border: none;
-	display: flex;
-
-	&:hover .octo-arm {
-		animation: octocat-wave 560ms ease-in-out;
-
-		@include breakpoint('medium') {
-			animation: none;
-		}
-	}
-
-	.octo-arm {
-		@include breakpoint('medium') {
-			animation: octocat-wave 560ms ease-in-out;
-		}
-	}
-}
-
 @keyframes octocat-wave {
 
 	0%,

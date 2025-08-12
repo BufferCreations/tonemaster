@@ -36,6 +36,15 @@ main: true
       <input id="single-percent" name="single-percent" type="number" value="25" min="1" max="99" step="1" style="width:8rem">
     </div>
 
+    <div class="input" style="margin-top:.75rem">
+      <label for="format" class="textarea-label">Format</label>
+      <select id="format" name="format">
+        <option value="hex">HEX</option>
+        <option value="rgb">RGB</option>
+        <option value="hsl">HSL</option>
+      </select>
+    </div>
+
     <input id="make" class="button" type="submit" value="Make ToneMaster &nbsp;🎉">
   </form>
 </div>
@@ -46,6 +55,48 @@ main: true
     <span class="control"></span>
     <span class="label">Include hashtag when copying</span>
   </label>
+</div>
+
+<!-- Accessibility panel -->
+<div class="input" style="margin-top:1rem">
+  <h3 style="margin:0 0 .5rem 0">Accessibility</h3>
+
+  <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center">
+    <!-- Rating -->
+    <label>
+      Rating&nbsp;
+      <select id="a11y-enabled" name="a11y-enabled">
+        <option value="off">Off</option>
+        <option value="AA">AA</option>
+        <option value="AAA">AAA</option>
+      </select>
+    </label>
+
+    <!-- Background -->
+    <label>
+      Background&nbsp;
+      <select id="a11y-bg-mode" name="a11y-bg-mode">
+        <option value="white">White</option>
+        <option value="black">Black</option>
+        <option value="custom">Custom</option>
+      </select>
+    </label>
+    <input id="a11y-bg-custom" type="color" value="#ffffff" style="width:3rem; height:2rem; padding:0; border:none; display:none">
+    <input id="a11y-bg-hex" type="text" value="#ffffff" placeholder="#ffffff" style="width:9rem; display:none">
+
+    <!-- Text size -->
+    <label>
+      Text size&nbsp;
+      <select id="a11y-size" name="a11y-size">
+        <option value="normal">Normal</option>
+        <option value="large">Large</option>
+      </select>
+    </label>
+  </div>
+
+  <p class="tm-tip" style="margin-top:.5rem">
+    WCAG thresholds: AA (normal ≥ 4.5:1, large ≥ 3:1), AAA (normal ≥ 7:1, large ≥ 4.5:1)
+  </p>
 </div>
 
 <div class="ads">
