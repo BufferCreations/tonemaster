@@ -7,6 +7,7 @@ const settings = {
   stepPercent: 10,
   singlePercent: 25,
   format: 'hex',
+  hexUppercase: false,
 };
 
 const loadSettings = () => {
@@ -30,6 +31,17 @@ const initializeSettings = () => {
     updateClipboardData();
   });
   if (hashtag) hashtag.checked = settings.copyWithHashtag;
+
+  const upperHex = document.getElementById('copy-hex-uppercase');
+  upperHex?.addEventListener('change', () => {
+    settings.hexUppercase = upperHex.checked;
+    saveSettings();
+    updateClipboardData();
+    // If visible text row is HEX, re-render it to reflect case preference
+    const formatSel = document.getElementById('format');
+    if (formatSel && formatSel.value === 'hex') createTintsAndShades(true);
+  });
+  if (upperHex) upperHex.checked = settings.hexUppercase;
 
   const modeSelect    = document.getElementById('mode');
   const stepWrapper   = document.getElementById('step-wrapper');
@@ -74,6 +86,8 @@ const initializeSettings = () => {
     saveSettings();
     updateClipboardData();
     renderCopyTips();
+    // Re-render table text row when display format changes
+    createTintsAndShades(true);
   });
 
   injectStyles();
@@ -171,8 +185,8 @@ const rgbToHsl = ({ r, g, b }) => {
 
 const formatAs = (hexNoHash, type, withHashPref = false) => {
   if (type === 'hex') {
-    const v = hexNoHash.toUpperCase();
-    return withHashPref ? `#${v}` : v;
+    const raw = settings.hexUppercase ? hexNoHash.toUpperCase() : hexNoHash.toLowerCase();
+    return withHashPref ? `#${raw}` : raw;
   }
   if (type === 'rgb') {
     const { r, g, b } = hexToRgbObj(hexNoHash);
@@ -188,11 +202,21 @@ const formatOrder = () => {
   return [first, ...allFormats.filter(f => f !== first)];
 };
 
-const formatForText = (hexNoHash) => formatAs(hexNoHash, settings.format, false);
-const formatForClipboardDefault = (hexNoHash) =>
-  settings.format === 'hex'
-    ? formatAs(hexNoHash, 'hex', settings.copyWithHashtag)
-    : formatAs(hexNoHash, settings.format);
+const formatForText = (hexNoHash) => {
+  if (settings.format === 'hex') {
+    // Show HEX text in chosen case when displaying HEX
+    return formatAs(hexNoHash, 'hex', false);
+  }
+  return formatAs(hexNoHash, settings.format, false);
+};
+
+const formatForClipboardDefault = (hexNoHash) => {
+  if (settings.format === 'hex') {
+    const v = settings.hexUppercase ? hexNoHash.toUpperCase() : hexNoHash.toLowerCase();
+    return settings.copyWithHashtag ? `#${v}` : v;
+  }
+  return formatAs(hexNoHash, settings.format);
+};
 
 /* ================================
    INPUT PARSING
@@ -249,7 +273,7 @@ const makeTableRowColors = (colors, displayType) => {
   const [d, s, t] = formatOrder().map(f => f.toUpperCase());
   const title = `Click = ${d} • Shift+Click = ${s} • Alt+Click = ${t}`;
   colors.forEach(hex => {
-    const colorHex = hex.toString(16);
+    const colorHex = hex.toString(16); // source hex stays lowercase here
     if (displayType === "colors") {
       const clip = formatForClipboardDefault(colorHex);
       row += `
@@ -375,7 +399,9 @@ const bindCellInteractions = () => {
     else if (e.shiftKey) chosen = order[1];
 
     const text = chosen === 'hex'
-      ? formatAs(srcHex, 'hex', settings.copyWithHashtag)
+      ? (settings.copyWithHashtag
+          ? `#${(settings.hexUppercase ? srcHex.toUpperCase() : srcHex.toLowerCase())}`
+          : (settings.hexUppercase ? srcHex.toUpperCase() : srcHex.toLowerCase()))
       : formatAs(srcHex, chosen);
 
     cell.setAttribute('data-clipboard-text', text);
